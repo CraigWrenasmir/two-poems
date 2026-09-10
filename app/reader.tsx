@@ -131,7 +131,7 @@ export default function Reader(){
       {pi===1&&<button className="text-button inspect-link" onClick={()=>go(1,19,true,true)}>[ inspect an earlier turn ]</button>}
       <span className="end-mark" aria-hidden="true">* &nbsp; * &nbsp; *</span>
       <a className="next-poem" href={`#${poems[1-pi].slug}`} onClick={e=>{e.preventDefault();go(1-pi);}}><span>0{2-pi} / next poem</span>{poems[1-pi].title} <span aria-hidden="true">→</span></a>
-      <div className="colophon"><span>Poems © Craig Smith</span><a href={`poems/${p.slug}.txt`}>Original text ↗</a></div>
+      <div className="colophon"><span>Poems © Craig Smith</span><a href={`poems/${p.slug}.txt`}>Poem text ↗</a></div>
      </footer>
     </article>)}
    </main>

@@ -25,7 +25,7 @@ export const poems = [
       "When she walked into the kitchen, I wasn't sure\nif I was seeing a mushroom cloud exit the room\nor whether it was hair against sundown. ",
       "A ship took the window’s light\nout of the cloth. She set the clock for seven-ish.\nWanting something to last is not the same\nas wanting it unchanged. I lay there with the streets\nstill turning in me, all the stairs I hadn’t taken\ncoming down, the doors opening behind doors.\nA city without a labyrinth sends the maze inside the locals. ",
       "She put the lamp out. The silk kept all its colours\nwhere we couldn’t see them.\nI knew the window by the colder dark.\nShe moved my hand to where she wanted it.",
-      "Darkness does not remove the room we’re in.\nIt just removes us."
+      "Darkness does not remove the room we’re in.\nIt removes us."
     ]
   },
   {

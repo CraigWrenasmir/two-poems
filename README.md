@@ -11,11 +11,11 @@ The poems scroll continuously beside changing ASCII geographies. Streets become 
 - **Plain text** removes the drawings and reduces stanza spacing. It includes a print control.
 - **Motion** controls drawing transitions. The initial setting honours the reader’s reduced-motion preference.
 - Without JavaScript, both poems are available as pre-rendered text.
-- Original source text is available beneath each poem. Both files are byte-for-byte copies of the supplied manuscripts.
+- Plain-text copies of the current poems, including the author’s revisions, are available beneath each poem.
 
 ## Source and publication
 
-`app/poems.ts` contains the reading text; `public/poems/` contains the unchanged originals. `app/scenes.ts` defines the original ASCII accompaniments. These drawings are imagined geographies, not survey maps or reproductions of the exhibition artworks. The imagery is an accompaniment, not an alteration of the poems.
+`app/poems.ts` contains the reading text; `public/poems/` contains the current authorised poem text. The initially supplied versions remain in Git history. `app/scenes.ts` defines the original ASCII accompaniments. These drawings are imagined geographies, not survey maps or reproductions of the exhibition artworks. The imagery is an accompaniment, not an alteration of the poems.
 
 `app/reader.tsx` owns reading behaviour. `app/globals.css` owns presentation. The build pre-renders the same React component that is hydrated in the browser. Relative asset URLs make the output portable between a domain root and GitHub project Pages.
 

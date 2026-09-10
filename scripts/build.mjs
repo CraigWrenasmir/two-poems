@@ -8,7 +8,7 @@ import path from 'node:path';
 // A relative-URL static bundle is portable between GitHub project Pages and Sites.
 // Prerender the same Reader component so both poems remain readable without JS.
 const root=path.dirname(path.dirname(fileURLToPath(import.meta.url)));
-const common={configFile:false,root,resolve:{alias:{'@':root}}};
+const common={configFile:false,root,resolve:{alias:{'@':root},dedupe:['react','react-dom']}};
 const renderer=await createServer({...common,plugins:[react()],server:{middlewareMode:true,hmr:false}});
 let markup;
 try{

@@ -28,7 +28,7 @@ npm run verify
 npx tsc --noEmit
 ```
 
-The development preview uses the generated Vinext starter. The production build uses Vite directly to produce a self-contained static edition in `dist/client/`, avoiding a base-path limitation in the starter’s static exporter. No server, database, accounts or external runtime services are required. The font is served locally.
+Development and production both use Vite and React, with React deduplicated across component imports. The production build pre-renders the reader and produces a self-contained static edition in `dist/client/`. This avoids the generated starter’s base-path export and development React-instance limitations. No server, database, accounts or external runtime services are required. The font is served locally.
 
 GitHub Pages serves the checked-in `docs/` directory from `main`. To update it after a successful build, copy the contents of `dist/client/` to `docs/`, retaining `.nojekyll`, and commit the source and output together.
 

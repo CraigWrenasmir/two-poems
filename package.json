@@ -6,9 +6,9 @@
     "node": ">=22.13.0"
   },
   "scripts": {
-    "dev": "vinext dev",
+    "dev": "vite --host 127.0.0.1",
     "build": "node scripts/build.mjs",
-    "start": "wrangler dev --config dist/server/wrangler.json",
+    "start": "vite preview --host 127.0.0.1",
     "lint": "oxlint app scripts next.config.ts vite.config.ts",
     "format": "oxfmt",
     "verify": "node --experimental-strip-types scripts/verify.mjs"

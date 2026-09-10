@@ -135,7 +135,7 @@ export default function Reader(){
      </footer>
     </article>)}
    </main>
-   <aside className="scene-panel" data-night={scene.night&&!plain} aria-label="Accompanying ASCII geography">
+   <aside className="scene-panel" aria-label="Accompanying ASCII geography">
     <div className="scene-inner"><div className="scene-top"><span>0{poem+1} / {scene.label}</span><span aria-hidden="true">+</span></div>
      <Ascii scene={scene} motion={motion&&!plain} strip={poem===0&&stanza===5}/>
      <div className="scene-bottom"><span>{String(stanza+1).padStart(2,'0')} / {current.stanzas.length}</span><span>not to scale</span></div>

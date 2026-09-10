@@ -1,0 +1,5 @@
+# Preserve the supplied manuscripts and original font licence byte for byte.
+public/poems/*.txt -text
+public/FONT-LICENSE.txt -text
+docs/poems/*.txt -text
+docs/FONT-LICENSE.txt -text

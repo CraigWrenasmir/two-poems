@@ -25,6 +25,6 @@ const html=readFileSync('dist/client/index.html','utf8');
 const entities={'&amp;':'&','&lt;':'<','&gt;':'>','&quot;':'"','&#x27;':"'",'&#39;':"'"};
 const lines=Array.from(html.matchAll(/<span class="line">([\s\S]*?)<\/span>/g),m=>m[1].replace(/&(?:amp|lt|gt|quot|#x27|#39);/g,e=>entities[e]));
 assert.deepEqual(lines,poems.flatMap(p=>p.stanzas.flatMap(s=>s.split('\n'))));
-for(const m of html.matchAll(/(?:src|href)="(\.\/assets\/[^\"]+)"/g))assert.ok(existsSync('dist/client/'+m[1]),m[1]);
+for(const m of html.matchAll(/(?:src|href)="(\.\/assets\/[^"]+)"/g))assert.ok(existsSync('dist/client/'+m[1]),m[1]);
 assert.ok(!html.includes('<!--poems-->'));
 console.log(`${count} scenes and their transitions verified; ${lines.length} poem lines preserved; original files and relative assets verified.`);

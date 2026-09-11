@@ -19,7 +19,8 @@ export function nativeStyle(css:string){
  .plain-toolbar{position:sticky;bottom:0;left:auto;right:auto;flex-wrap:wrap}
  .plain-toolbar a{text-decoration:none}
  .edition[data-plain=true] .stanza{scroll-margin-top:calc(var(--native-sticky-top) + 25px)}
- .skip-link{position:absolute}
+ .skip-link{position:absolute;top:16px;opacity:0;pointer-events:none;background:var(--paper);color:var(--ink);border:1px solid var(--rule)}
+ .skip-link:focus{opacity:1;pointer-events:auto}
  @container wrenasmir-poems (min-width:851px){
   .ascii{font-size:min(1.99cqw,calc((100svh - var(--native-sticky-top) - 285px)/62.4))}
  }

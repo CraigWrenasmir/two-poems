@@ -50,6 +50,8 @@ Native verification checks text parity with the standalone edition, local stanza
 
 Squarespace guidance: https://support.squarespace.com/hc/en-us/articles/206543167-Code-blocks
 
+The 11 September 2026 browser check found and corrected a development-JSX/production-React mismatch in the native bundle. The build now resets the environment after prerendering, and the native fallback stays visible until the reader mounts. The corrected preview was exercised in the in-app browser: both poems render, scrolling updates the light ASCII scene, poem selection preserves the host URL, plain-text and motion controls work, and the enlarged return reaches stanza 20 and returns to stanza 23. The standalone edition was also checked for hydration. This does not constitute installation on a saved Squarespace page.
+
 ## Rights
 
 Poems © Craig Smith. Publication of this repository does not grant a licence to reproduce the poems. IBM Plex Mono is distributed under the SIL Open Font License; see `public/FONT-LICENSE.txt`.

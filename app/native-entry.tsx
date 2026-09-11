@@ -1,4 +1,5 @@
 import {createRoot,type Root} from 'react-dom/client';
+import {useEffect} from 'react';
 import Reader from './reader';
 import css from './globals.css?raw';
 import {nativeStyle} from './native-style';
@@ -18,6 +19,11 @@ function loadFont(){
  }
 }
 
+function NativeReader({onReady}:{onReady:()=>void}){
+ useEffect(onReady,[onReady]);
+ return <Reader embedded assetBase={assetBase}/>;
+}
+
 class WrenasmirPoems extends HTMLElement{
  private reactRoot:Root|null=null;
  connectedCallback(){
@@ -29,9 +35,13 @@ class WrenasmirPoems extends HTMLElement{
   // The light-DOM link is retained, and exposed if rendering fails.
   const fallback=document.createElement('slot');
   shadow.replaceChildren(style,mount,fallback);
-  this.reactRoot=createRoot(mount,{onUncaughtError:()=>{mount.hidden=true;fallback.hidden=false;}});
-  fallback.hidden=true;
-  this.reactRoot.render(<Reader embedded assetBase={assetBase}/>);
+  const failed=(error:unknown)=>{mount.hidden=true;fallback.hidden=false;console.error('The native poetry reader could not load.',error);};
+  // Keep the fallback visible until React has actually committed the reader.
+  // Synchronous startup errors occur before React's error handler is active.
+  try{
+   this.reactRoot=createRoot(mount,{onUncaughtError:failed});
+   this.reactRoot.render(<NativeReader onReady={()=>{fallback.hidden=true;}}/>);
+  }catch(error){failed(error);}
  }
  disconnectedCallback(){
   // Squarespace can move a block without removing it from the page.

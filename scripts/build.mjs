@@ -15,6 +15,9 @@ try{
  const {default:Reader}=await renderer.ssrLoadModule('/app/reader.tsx');
  markup=renderToString(createElement(Reader));
 }finally{await renderer.close();}
+// createServer defaults NODE_ENV to development. Reset it before resolving the
+// build config so JSX compilation and React's bundled runtime both use production.
+process.env.NODE_ENV='production';
 await build({...common,base:'./',plugins:[react(),{name:'prerender-poems',transformIndexHtml:html=>html.replace('<!--poems-->',markup)}],build:{outDir:'dist/client',emptyOutDir:true}});
 // A classic, self-contained script: Squarespace does not supply React or run a
 // bundler. Keep this beside the standalone edition, sharing its source text.

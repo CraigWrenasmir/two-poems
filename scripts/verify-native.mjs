@@ -41,6 +41,7 @@ try{
 const bundle=readFileSync('dist/client/native/reader.js','utf8');
 new Script(bundle); // A classic script, with no module imports or JSX remaining.
 assert.ok(!bundle.includes('process.env.NODE_ENV'));
+assert.ok(!bundle.includes('jsxDEV'),'Native production bundle must not call the development JSX runtime');
 const snippet=readFileSync('public/squarespace-snippet.txt','utf8');
 assert.ok(snippet.includes('https://craigwrenasmir.github.io/two-poems/native/reader.js'));
 assert.ok(!snippet.includes('<iframe'));

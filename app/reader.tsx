@@ -127,12 +127,12 @@ export default function Reader({embedded=false,assetBase=''}:ReaderProps){
  }
  return <div ref={edition} className="edition" data-enhanced={enhanced} data-plain={plain} data-motion={motion}>
   <a className="skip-link" href="#reading" onClick={embedded?e=>{e.preventDefault();const target=edition.current?.querySelector<HTMLElement>('#reading');target?.scrollIntoView({block:'start'});target?.focus({preventScroll:true});}:undefined}>Skip to poem</a>
-  <header className="masthead"><a className="signature" href={`${embedded?assetBase:''}#never-a-different-tomorrow`} onClick={e=>{e.preventDefault();go(0);}}>Craig Smith <span>/ two poems</span></a><span className="edition-label">Newcastle</span></header>
+  {!embedded&&<header className="masthead"><a className="signature" href={`${embedded?assetBase:''}#never-a-different-tomorrow`} onClick={e=>{e.preventDefault();go(0);}}>Craig Smith <span>/ two poems</span></a><span className="edition-label">Newcastle</span></header>}
   <nav className="poem-nav" aria-label="Poems">{poems.map((p,i)=><a key={p.slug} href={`${embedded?assetBase:''}#${p.slug}`} aria-current={poem===i?'page':undefined} onClick={e=>{e.preventDefault();go(i);}}><span>0{i+1}</span>{p.title}</a>)}</nav>
   <div className="reading-layout" ref={article}>
    <ReadingSurface className="poems" id="reading" tabIndex={-1}>
     {poems.map((p,pi)=><article className="poem" id={p.slug} hidden={enhanced&&pi!==poem} key={p.slug} aria-labelledby={`${p.slug}-title`}>
-     <div className="poem-heading"><p className="eyebrow">0{pi+1} / Craig Smith</p><Heading id={`${p.slug}-title`} tabIndex={-1}>{p.title}</Heading><p className="art-title">on ‘{p.art}’</p></div>
+     <div className="poem-heading">{!embedded&&<p className="eyebrow">0{pi+1} / Craig Smith</p>}<Heading id={`${p.slug}-title`} tabIndex={-1}>{p.title}</Heading><p className="art-title">on ‘{p.art}’</p></div>
      {p.stanzas.map((s,i)=><div key={i} className="stanza" data-stanza={i} data-current={pi===poem&&i===stanza} id={`${p.slug}-${i+1}`} tabIndex={-1}>
       <a className="stanza-number" href={`${embedded?assetBase:''}#${p.slug}/${i+1}`} aria-label={`${embedded?'Go':'Link'} to stanza ${i+1}`} onClick={e=>{e.preventDefault();go(pi,i,true);}}>{String(i+1).padStart(2,'0')}</a>
       <p>{s.split('\n').map((line,j)=><Fragment key={j}><span className="line">{line}</span>{j<s.split('\n').length-1?'\n':''}</Fragment>)}</p>
@@ -148,8 +148,8 @@ export default function Reader({embedded=false,assetBase=''}:ReaderProps){
    <aside className="scene-panel" aria-label="Accompanying ASCII geography">
     <div className="scene-inner"><div className="scene-top"><span>0{poem+1} / {scene.label}</span><span aria-hidden="true">+</span></div>
      <Ascii scene={scene} motion={motion&&!plain} strip={poem===0&&stanza===5}/>
-     <div className="scene-bottom"><span>{String(stanza+1).padStart(2,'0')} / {current.stanzas.length}</span><span>not to scale</span></div>
-     <div className="reading-tools"><button className="text-button" onClick={togglePlain}>[ plain text ]</button><label className="motion-control" htmlFor="motion-enabled"><Switch id="motion-enabled" aria-label="Animate drawing transitions" checked={motion} onCheckedChange={setMotion} className="motion-switch"/>motion</label></div>
+     <div className="scene-bottom"><span>{String(stanza+1).padStart(2,'0')} / {current.stanzas.length}</span>{!embedded&&<span>not to scale</span>}</div>
+     <div className="reading-tools"><button className="text-button" onClick={togglePlain}>[ plain text ]</button>{!embedded&&<label className="motion-control" htmlFor="motion-enabled"><Switch id="motion-enabled" aria-label="Animate drawing transitions" checked={motion} onCheckedChange={setMotion} className="motion-switch"/>motion</label>}</div>
      {enlarged&&<button className="text-button return-link" onClick={()=>go(1,22,true)}>[ return to the ending ]</button>}
     </div>
    </aside>

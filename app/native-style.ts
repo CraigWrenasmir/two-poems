@@ -10,7 +10,7 @@ export function nativeStyle(css:string){
   .replace(/@media(\((?:min|max)-width[^{}]*)\{/g,'@container wrenasmir-poems $1{')
   .replace(/([\d.]+)vw\b/g,'$1cqw')
   + `
- :host{all:initial;display:block;min-width:0;max-width:100%;container:wrenasmir-poems / inline-size;color-scheme:light;--native-sticky-top:0px}
+ :host{all:initial;display:block;min-width:0;max-width:100%;container:wrenasmir-poems / inline-size;color-scheme:light;--paper:#fff;--native-sticky-top:0px}
  .edition{position:relative;display:block;width:100%;margin:0;line-height:normal;text-align:left;scroll-margin-top:calc(var(--native-sticky-top) + 16px);isolation:isolate}
  [hidden]{display:none!important}
  .scene-panel{top:var(--native-sticky-top);height:calc(100svh - var(--native-sticky-top));background:var(--paper)}

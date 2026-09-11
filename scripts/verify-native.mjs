@@ -21,7 +21,7 @@ const css=nativeStyle(readFileSync('app/globals.css','utf8'));
 assert.ok(!/@media\((?:min|max)-width/.test(css));
 assert.ok(!/\b(?:body|html)\{|:root|@font-face/.test(css));
 assert.ok(css.includes('@container wrenasmir-poems (max-width:850px)'));
-assert.ok(css.includes('--paper:#f5f3ed'));
+assert.ok(css.includes('--paper:#fff'));
 assert.ok(!css.includes('data-night'));
 
 const renderer=await createServer({configFile:false,root:process.cwd(),plugins:[react()],resolve:{alias:{'@':process.cwd()},dedupe:['react','react-dom']},server:{middlewareMode:true,hmr:false}});

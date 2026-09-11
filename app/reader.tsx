@@ -154,7 +154,7 @@ export default function Reader({embedded=false,assetBase=''}:ReaderProps){
     </div>
    </aside>
   </div>
-  {plain&&<div className="plain-toolbar"><button className="text-button" onClick={togglePlain}>[ return to illustrated reading ]</button>{embedded?<a className="text-button" href={`${assetBase}?view=plain#${current.slug}`} target="_blank" rel="noopener">[ printable edition ↗ ]</a>:<button className="text-button" onClick={()=>window.print()}>[ print ]</button>}</div>}
+  {plain&&<div className="plain-toolbar"><button className="text-button" onClick={togglePlain}>[ return to illustrated reading ]</button>{!embedded&&<button className="text-button" onClick={()=>window.print()}>[ print ]</button>}</div>}
   <noscript><p className="no-script">Both poems are available in full above. The changing drawings need JavaScript.</p></noscript>
  </div>;
 }

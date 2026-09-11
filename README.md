@@ -36,6 +36,20 @@ GitHub Pages serves the checked-in `docs/` directory from `main`. To update it a
 
 The release checks include TypeScript, lint of authored code, all 45 scene definitions and transition endpoints, the disappearance of the two figures in the final room, the enlarged return, pre-rendered line-by-line text preservation, original-file byte equality and static asset references. Live GitHub output is compared with the local release files after publication.
 
+## Native Squarespace edition
+
+`app/native-entry.tsx` registers `<wrenasmir-poems>`. A self-contained classic script is built to `native/reader.js`, using the same Reader, poems and ASCII scenes. It renders inside a shadow root on the host page, with normal document scrolling and no iframe. The sample surrounding page at `native-preview/` is a demonstration, not a copy of or an edit to the live Squarespace site.
+
+Paste `public/squarespace-snippet.txt` into one Squarespace **HTML** Code Block with **Display Source off**. It includes both poems. JavaScript must be permitted by the Squarespace plan. The fallback link remains available if JavaScript cannot run. First try a duplicate of the existing page, keeping the exhibition introduction and replacing the two plain-text poem blocks and their separate headings with the component.
+
+The native stylesheet is derived from `app/globals.css`, but its breakpoints follow the component width. Styles do not leak out into Squarespace. Native navigation does not change the host URL, and mounting does not scroll the host page. Downloads and the printable standalone view use absolute URLs derived from the loader script. The native view uses h2 headings under the host page's title and does not introduce a second main landmark. Removing a block releases its React root and scrolling listeners; reinserting it mounts again. Loading the script twice does not register the component twice.
+
+For a site with a fixed top header, set `style="--native-sticky-top:80px"` on the custom element, adjusting the pixel value to the header height. The inspected Wrenasmir page uses a fixed side navigation instead. Its Code Blocks use the classic layout. Fluid Engine grids or other templates may need their own block-height and overflow adjustments. No global Squarespace layout rules are injected.
+
+Native verification checks text parity with the standalone edition, local stanza selection when surrounding content changes, style isolation, absolute download references, and executable classic-script syntax. It does **not** establish browser compatibility or successful installation on a saved Squarespace page. After pasting, check the published page as a visitor: scroll both poems, use the return-to-earlier-turn link, toggle motion/plain text, and check phone width. Squarespace may suppress scripts in the editor; use Preview in Safe Mode or the signed-out page. If entry through the site's AJAX navigation suppresses the loader, place that same script once in site footer Code Injection, leaving only the custom element in the page block.
+
+Squarespace guidance: https://support.squarespace.com/hc/en-us/articles/206543167-Code-blocks
+
 ## Rights
 
 Poems © Craig Smith. Publication of this repository does not grant a licence to reproduce the poems. IBM Plex Mono is distributed under the SIL Open Font License; see `public/FONT-LICENSE.txt`.

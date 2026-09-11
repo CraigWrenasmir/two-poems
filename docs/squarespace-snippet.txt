@@ -1,0 +1,4 @@
+<wrenasmir-poems>
+  <p><a href="https://craigwrenasmir.github.io/two-poems/">Read the illustrated poems ↗</a></p>
+</wrenasmir-poems>
+<script defer src="https://craigwrenasmir.github.io/two-poems/native/reader.js"></script>

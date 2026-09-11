@@ -28,3 +28,4 @@ assert.deepEqual(lines,poems.flatMap(p=>p.stanzas.flatMap(s=>s.split('\n'))));
 for(const m of html.matchAll(/(?:src|href)="(\.\/assets\/[^"]+)"/g))assert.ok(existsSync('dist/client/'+m[1]),m[1]);
 assert.ok(!html.includes('<!--poems-->'));
 console.log(`${count} scenes and their transitions verified; ${lines.length} poem lines preserved; original files and relative assets verified.`);
+await import('./verify-native.mjs');

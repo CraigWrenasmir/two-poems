@@ -16,3 +16,9 @@ try{
  markup=renderToString(createElement(Reader));
 }finally{await renderer.close();}
 await build({...common,base:'./',plugins:[react(),{name:'prerender-poems',transformIndexHtml:html=>html.replace('<!--poems-->',markup)}],build:{outDir:'dist/client',emptyOutDir:true}});
+// A classic, self-contained script: Squarespace does not supply React or run a
+// bundler. Keep this beside the standalone edition, sharing its source text.
+await build({...common,publicDir:false,plugins:[react()],define:{'process.env.NODE_ENV':'"production"'},build:{
+ outDir:'dist/client/native',emptyOutDir:true,minify:true,
+ lib:{entry:path.join(root,'app/native-entry.tsx'),name:'WrenasmirPoemsNative',formats:['iife'],fileName:()=> 'reader.js'},
+}});

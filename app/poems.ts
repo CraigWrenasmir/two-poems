@@ -3,6 +3,7 @@ export const poems = [
     "slug": "never-a-different-tomorrow",
     "title": "Never A Different Tomorrow",
     "art": "Into The Dark",
+    "recitation": "https://www.youtube.com/watch?v=sWOsGm8JOEw",
     "stanzas": [
       "One-hundred-and-seven-ish, she said.\nThey were changing it. Her apartment\nwas behind two other apartments.\nUse their entrance, not their stairs.\nThe courtyard has another side.\nHer biro barred the number. The seven’s little roof\nstuck up above the ink. I folded her directions \nalong a line that brought two streets together.\nI’ll find it, I said. I know this town.",
       "Among the austerities of our era\nI missed the public provision of labyrinths.\nThe shopping centres tried. The car parks did\nwhat they could: a few dim floors of where-was-I,\nthen arrows running down the walls to fetch you.\nGet lost, they said. As though it were that easy.\nEvery direction excludes a world.\nI went along the one she’d given me.",
@@ -32,6 +33,7 @@ export const poems = [
     "slug": "the-full-sized-edition",
     "title": "The Full-Sized Edition",
     "art": "Garden of Forking Paths",
+    "recitation": "https://www.youtube.com/watch?v=CMF1X3h1QTE",
     "stanzas": [
       "This is the box-lid Newcastle, timber-backed.\nThe streets go across the grain.\nAt the painted turn the wood resumes its branching; a knot\ndiverts the traffic round a tree that isn’t there.\nYou can play on it. Take your shoes off.\nThe other version takes all afternoon to cross.",
       "The harbour in the full-sized set has depth\nbut needs to stay outside. Ships come separately,\nthe red of their undersides tide-ruled, salt-flaked.\nFreight is extra. So is the void.\nA mouth this size will take another person \nwithout either face conceding its arrangement.",

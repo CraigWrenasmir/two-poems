@@ -132,7 +132,7 @@ export default function Reader({embedded=false,assetBase=''}:ReaderProps){
   <div className="reading-layout" ref={article}>
    <ReadingSurface className="poems" id="reading" tabIndex={-1}>
     {poems.map((p,pi)=><article className="poem" id={p.slug} hidden={enhanced&&pi!==poem} key={p.slug} aria-labelledby={`${p.slug}-title`}>
-     <div className="poem-heading">{!embedded&&<p className="eyebrow">0{pi+1} / Craig Smith</p>}<Heading id={`${p.slug}-title`} tabIndex={-1}>{p.title}</Heading><p className="art-title">on ‘{p.art}’</p></div>
+     <div className="poem-heading">{!embedded&&<p className="eyebrow">0{pi+1} / Craig Smith</p>}<Heading id={`${p.slug}-title`} tabIndex={-1}>{p.title}</Heading><p className="art-title">on ‘{p.art}’</p><a className="recitation-link" href={p.recitation} target="_blank" rel="noopener noreferrer" aria-label={`Listen to a recitation of ${p.title} on YouTube (opens in a new tab)`}>[ &gt; listen to the poem ↗ ]</a></div>
      {p.stanzas.map((s,i)=><div key={i} className="stanza" data-stanza={i} data-current={pi===poem&&i===stanza} id={`${p.slug}-${i+1}`} tabIndex={-1}>
       <a className="stanza-number" href={`${embedded?assetBase:''}#${p.slug}/${i+1}`} aria-label={`${embedded?'Go':'Link'} to stanza ${i+1}`} onClick={e=>{e.preventDefault();go(pi,i,true);}}>{String(i+1).padStart(2,'0')}</a>
       <p>{s.split('\n').map((line,j)=><Fragment key={j}><span className="line">{line}</span>{j<s.split('\n').length-1?'\n':''}</Fragment>)}</p>

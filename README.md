@@ -7,6 +7,7 @@ The poems scroll continuously beside changing ASCII geographies. Streets become 
 ## Reading
 
 - Select either poem at the top or follow the next-poem link at the end.
+- **Listen to the poem** beneath each title opens its YouTube recitation in a new tab, keeping the reading page available. The links appear in both the native and standalone editions.
 - Stanza numbers link directly to that passage.
 - **Plain text** removes the drawings and reduces stanza spacing. It includes a print control.
 - **Motion** controls drawing transitions. The initial setting honours the reader’s reduced-motion preference.
